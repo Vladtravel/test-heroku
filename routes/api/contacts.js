@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 router.get("/", async (req, res, next) => {
-  res.json({ message: "11" });
+  res.json({ message: "22" });
 });
 
 router.get("/:contactId", async (req, res, next) => {
