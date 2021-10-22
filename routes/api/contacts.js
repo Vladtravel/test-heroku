@@ -6,7 +6,7 @@ const contactsController = require("../../controllers/contacts");
 const guard = require("../../service/guard");
 
 router.get("/", guard, contactsController.listContacts);
-.post("/", guard, validateContact, contactsController.addContact);
+router.post("/", guard, validateContact, contactsController.addContact);
 
 router
   .get("/:contactId", guard, contactsController.getContactById)
