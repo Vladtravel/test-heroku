@@ -15,22 +15,6 @@ cloudinary.config({
   api_secret: process.env.API_SECRET_CLOUD,
 });
 
-const ff = async (req, res, next) => {
-  try {
-    return res.status(HttpCode.OK).json({
-      status: "success",
-      code: HttpCode.OK,
-      data: {
-        user: {
-          massage: "ПРИВЕТТТТТТТТТТТ",
-        },
-      },
-    });
-  } catch (e) {
-    next(e);
-  }
-};
-
 const uploadToCloud = promisify(cloudinary.uploader.upload);
 
 const signup = async (req, res, next) => {
@@ -211,7 +195,7 @@ module.exports = {
   currentUser,
   updateSub,
   updateAvatar,
-  ff,
+
   // saveAvatarUser,
   // saveAvatarUserToCloud,
 };

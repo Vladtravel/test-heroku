@@ -20,7 +20,6 @@ const limiter = rateLimit({
   },
 });
 
-router.get("/", userController.ff);
 router.post("/signup", validateAuth, userController.signup);
 router.post("/login", validateAuth, limiter, userController.login);
 router.post("/logout", guard, userController.logout);
