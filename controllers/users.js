@@ -68,8 +68,10 @@ const login = async (req, res, next) => {
       code: HttpCode.OK,
       token,
       user: {
+        name: user.name,
         email: user.email,
         subscription: user.subscription,
+        avatarURL: user.avatarURL,
       },
     });
   } catch (e) {
