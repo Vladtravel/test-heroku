@@ -6,10 +6,16 @@ const SALT_FACTOR = 6;
 
 const userSchema = new Schema(
   {
+    name: {
+      type: String,
+      required: true,
+    },
+
     password: {
       type: String,
       required: ["true", "This fild is required"],
     },
+
     email: {
       type: String,
       required: ["true", "This fild is required"],
@@ -19,6 +25,7 @@ const userSchema = new Schema(
         return reg.test(String(value).toLowerCase());
       },
     },
+
     subscription: {
       type: String,
       enum: ["starter", "pro", "business"],
@@ -66,4 +73,3 @@ userSchema.methods.validPassword = async function (password) {
 const User = model("user", userSchema);
 
 module.exports = User;
-

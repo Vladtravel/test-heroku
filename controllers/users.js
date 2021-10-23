@@ -19,7 +19,7 @@ const uploadToCloud = promisify(cloudinary.uploader.upload);
 
 const signup = async (req, res, next) => {
   try {
-    const { email } = req.body;
+    const { name, email } = req.body;
     const user = await Users.findByEmail(email);
 
     if (user) {
@@ -34,12 +34,11 @@ const signup = async (req, res, next) => {
     return res.status(HttpCode.CREATED).json({
       status: "success",
       code: HttpCode.CREATED,
-      data: {
-        user: {
-          email: newUser.email,
-          subscription: newUser.subscription,
-          avatarURL: newUser.avatarURL,
-        },
+      user: {
+        name: newUser.name,
+        email: newUser.email,
+        subscription: newUser.subscription,
+        avatarURL: newUser.avatarURL,
       },
     });
   } catch (e) {
@@ -67,12 +66,10 @@ const login = async (req, res, next) => {
     return res.status(HttpCode.OK).json({
       status: "success",
       code: HttpCode.OK,
-      data: {
-        token,
-        user: {
-          email: user.email,
-          subscription: user.subscription,
-        },
+      token,
+      user: {
+        email: user.email,
+        subscription: user.subscription,
       },
     });
   } catch (e) {
@@ -100,11 +97,9 @@ const currentUser = async (req, res, next) => {
     return res.status(HttpCode.OK).json({
       status: "success",
       code: HttpCode.OK,
-      data: {
-        user: {
-          email: user.email,
-          subscription: user.subscription,
-        },
+      user: {
+        email: user.email,
+        subscription: user.subscription,
       },
     });
   } catch (e) {
@@ -120,11 +115,9 @@ const updateSub = async (req, res, next) => {
     return res.json({
       status: "success",
       code: HttpCode.OK,
-      data: {
-        user: {
-          email: user.email,
-          subscription: user.subscription,
-        },
+      user: {
+        email: user.email,
+        subscription: user.subscription,
       },
     });
   } catch (e) {

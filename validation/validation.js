@@ -9,6 +9,7 @@ const schemaValidateContact = Joi.object({
 });
 
 const schemaValidateAuth = Joi.object({
+  name: Joi.string(),
   email: Joi.string().email().required(),
   password: Joi.string().min(4).required(),
 });
