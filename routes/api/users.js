@@ -26,5 +26,7 @@ router.post("/logout", guard, userController.logout);
 router.get("/current", guard, userController.currentUser);
 router.patch("/", guard, validateUpdateSub, userController.updateSub);
 router.patch("/avatars", uploadAvatar.single("avatar"), guard, userController.updateAvatar);
+router.get("/verify/:verificationToken", userController.verify);
+router.post("/verify", userController.repeatEmailVerify);
 
 module.exports = router;
