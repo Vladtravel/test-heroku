@@ -8,7 +8,10 @@ const listContacts = async (req, res, next) => {
     return res.status(HttpCode.OK).json({
       status: "Success",
       code: HttpCode.OK,
-      data: { contacts, limit, page, total },
+      contacts,
+      limit,
+      page,
+      total,
     });
   } catch (e) {
     next(e);
