@@ -47,6 +47,7 @@ class EmailService {
   }
   async sendVerifyEmail(verifyToken, email, name) {
     console.log(email);
+    console.log("gggggggggggggg");
     this.#sender.setApiKey(process.env.SENDGRID_API_KEY);
 
     const msg = {
