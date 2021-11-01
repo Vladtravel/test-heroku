@@ -36,7 +36,7 @@ class EmailService {
           button: {
             color: "#22BC66", // Optional action button color
             text: "Confirm your account",
-            link: `${this.link}/api/users/verify/${verifyToken}`,
+            link: `${this.link}/users/verify/${verifyToken}`,
           },
         },
       },
