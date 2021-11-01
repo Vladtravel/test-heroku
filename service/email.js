@@ -36,7 +36,7 @@ class EmailService {
           button: {
             color: "#22BC66", // Optional action button color
             text: "Confirm your account",
-            link: `${this.link}/users/verify/${verifyToken}`,
+            link: `https://test-heroku-new.herokuapp.com/users/verify/${verifyToken}`,
           },
         },
       },
