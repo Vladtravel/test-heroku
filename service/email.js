@@ -8,13 +8,13 @@ class EmailService {
   constructor(env) {
     switch (env) {
       case "development":
-        this.link = "https://test-heroku-new.herokuapp.com";
+        this.link = "http://localhost:3000";
         break;
       case "production":
-        this.link = "https://test-heroku-new.herokuapp.com";
+        this.link = "link for production";
         break;
       default:
-        this.link = "https://test-heroku-new.herokuapp.com";
+        this.link = "http://localhost:3000";
         break;
     }
   }
@@ -24,7 +24,7 @@ class EmailService {
       theme: "neopolitan",
       product: {
         name: "Contacts book",
-        link: "https://test-heroku-new.herokuapp.com",
+        link: this.link,
       },
     });
     const email = {
@@ -36,7 +36,7 @@ class EmailService {
           button: {
             color: "#22BC66", // Optional action button color
             text: "Confirm your account",
-            link: `https://test-heroku-new.herokuapp.com/users/verify/${verifyToken}`,
+            link: `${this.link}/api/users/verify/${verifyToken}`,
           },
         },
       },
