@@ -24,7 +24,7 @@ class EmailService {
       theme: "neopolitan",
       product: {
         name: "Contacts book",
-        link: this.link,
+        link: "https://test-heroku-new.herokuapp.com",
       },
     });
     const email = {
