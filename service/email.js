@@ -8,13 +8,13 @@ class EmailService {
   constructor(env) {
     switch (env) {
       case "development":
-        this.link = "http://localhost:3000";
+        this.link = "https://test-heroku-new.herokuapp.com";
         break;
       case "production":
         this.link = "https://test-heroku-new.herokuapp.com";
         break;
       default:
-        this.link = "http://localhost:3000";
+        this.link = "https://test-heroku-new.herokuapp.com";
         break;
     }
   }
