@@ -11,7 +11,7 @@ class EmailService {
         this.link = "http://localhost:3000";
         break;
       case "production":
-        this.link = "link for production";
+        this.link = "https://test-heroku-new.herokuapp.com";
         break;
       default:
         this.link = "http://localhost:3000";
@@ -24,7 +24,7 @@ class EmailService {
       theme: "neopolitan",
       product: {
         name: "Contacts book",
-        link: this.link,
+        link: "https://testappcrm.herokuapp.com/login",
       },
     });
     const email = {
@@ -36,7 +36,7 @@ class EmailService {
           button: {
             color: "#22BC66", // Optional action button color
             text: "Confirm your account",
-            link: `${this.link}/api/users/verify/${verifyToken}`,
+            link: `${this.link}/users/verify/${verifyToken}`,
           },
         },
       },
