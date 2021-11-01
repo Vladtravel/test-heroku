@@ -5,17 +5,16 @@ require("dotenv").config();
 class EmailService {
   #sender = sendgrid;
   #GenerateTemplate = Mailgen;
-
   constructor(env) {
     switch (env) {
       case "development":
         this.link = "http://localhost:3000";
         break;
       case "production":
-        this.link = "https://testappcrm.herokuapp.com/";
+        this.link = "link for production";
         break;
       default:
-        this.link = "https://testappcrm.herokuapp.com/";
+        this.link = "http://localhost:3000";
         break;
     }
   }
@@ -37,7 +36,7 @@ class EmailService {
           button: {
             color: "#22BC66", // Optional action button color
             text: "Confirm your account",
-            link: `${this.link}/users/verify/${verifyToken}`,
+            link: `${this.link}/api/users/verify/${verifyToken}`,
           },
         },
       },
@@ -50,7 +49,7 @@ class EmailService {
     this.#sender.setApiKey(process.env.SENDGRID_API_KEY);
 
     const msg = {
-      to: email, // Change to your recipient
+      to: "vladtravel2015@gmail.com", // Change to your recipient
       from: "vladtravel2015@gmail.com", // Change to your verified sender
       subject: "Verify email",
       html: this.#createTemplateVerifyEmail(verifyToken, name),
