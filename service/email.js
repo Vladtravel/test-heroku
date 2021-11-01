@@ -46,12 +46,10 @@ class EmailService {
     return emailBody;
   }
   async sendVerifyEmail(verifyToken, email, name) {
-    console.log(email);
-    console.log("gggggggggggggg");
     this.#sender.setApiKey(process.env.SENDGRID_API_KEY);
 
     const msg = {
-      to: "vladtravel2015@gmail.com", // Change to your recipient
+      to: `${email}`, // Change to your recipient
       from: "vladtravel2015@gmail.com", // Change to your verified sender
       subject: "Verify email",
       html: this.#createTemplateVerifyEmail(verifyToken, name),
