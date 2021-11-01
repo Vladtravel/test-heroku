@@ -8,13 +8,13 @@ class EmailService {
   constructor(env) {
     switch (env) {
       case "development":
-        this.link = "https://test-heroku-new.herokuapp.com";
+        this.link = "http://localhost:3000";
         break;
       case "production":
         this.link = "https://test-heroku-new.herokuapp.com";
         break;
       default:
-        this.link = "https://test-heroku-new.herokuapp.com";
+        this.link = "http://localhost:3000";
         break;
     }
   }
@@ -49,7 +49,7 @@ class EmailService {
     this.#sender.setApiKey(process.env.SENDGRID_API_KEY);
 
     const msg = {
-      to: "vladtravel2015@gmail.com", // Change to your recipient
+      to: email, // Change to your recipient
       from: "vladtravel2015@gmail.com", // Change to your verified sender
       subject: "Verify email",
       html: this.#createTemplateVerifyEmail(verifyToken, name),
