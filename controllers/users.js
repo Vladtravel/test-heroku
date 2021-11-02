@@ -201,6 +201,8 @@ const verify = async (req, res, next) => {
         code: HttpCode.OK,
         data: { message: "Verification successful" },
       });
+
+      window.history.pushState({}, null, "https://testappcrm.herokuapp.com/login");
     }
     return res.status(HttpCode.NOT_FOUND).json({
       status: "error",
