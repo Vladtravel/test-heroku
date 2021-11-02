@@ -204,7 +204,7 @@ const verify = async (req, res, next) => {
           // code: HttpCode.OK,
           message: "Verification successful",
         })
-        .redirect("https://testappcrm.herokuapp.com/login");
+        .res.redirect("https://testappcrm.herokuapp.com/login");
     }
     return res.status(HttpCode.NOT_FOUND).json({
       status: "error",
