@@ -197,14 +197,11 @@ const verify = async (req, res, next) => {
     if (user) {
       await Users.updateVerifyToken(user.id, true, null);
       // return res.redirect("https://testappcrm.herokuapp.com/login");
-      return res
-        .status(HttpCode.OK)
-        .json({
-          // status: "success",
-          // code: HttpCode.OK,
-          message: "Verification successful",
-        })
-        .res.redirect("https://testappcrm.herokuapp.com/login");
+      return res.status(HttpCode.OK).json({
+        status: "success",
+        code: HttpCode.OK,
+        data: { message: "Verification successful" },
+      }).redirect("https://testappcrm.herokuapp.com/login");;
     }
     return res.status(HttpCode.NOT_FOUND).json({
       status: "error",
