@@ -44,6 +44,7 @@ const signup = async (req, res, next) => {
       code: HttpCode.CREATED,
       user: {
         id,
+        name
         email,
         subscription,
         avatarURL,
