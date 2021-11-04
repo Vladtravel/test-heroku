@@ -77,6 +77,7 @@ const login = async (req, res, next) => {
       code: HttpCode.OK,
       token,
       user: {
+        id: user.id,
         name: user.name,
         email: user.email,
         subscription: user.subscription,
