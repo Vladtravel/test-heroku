@@ -48,7 +48,7 @@ const signup = async (req, res, next) => {
         email,
         subscription,
         avatarURL,
-        verifyToken
+        verifyToken,
       },
     });
   } catch (e) {
@@ -83,6 +83,7 @@ const login = async (req, res, next) => {
         email: user.email,
         subscription: user.subscription,
         avatarURL: user.avatarURL,
+        verifyToken: user.verifyToken,
       },
     });
   } catch (e) {
