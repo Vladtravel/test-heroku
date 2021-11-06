@@ -223,9 +223,9 @@ const repeatEmailVerify = async (req, res, next) => {
   try {
     const user = await Users.findByEmail(req.body.email);
     if (user) {
-      const { name, verifyTokenEmail, email } = user;
+      const { name, verifyToken, email } = user;
       const emailService = new EmailService(process.env.NODE_ENV);
-      await emailService.sendVerifyEmail(verifyTokenEmail, email, name);
+      await emailService.sendVerifyEmail(verifyToken, email, name);
       return res.status(HttpCode.OK).json({
         status: "success",
         code: HttpCode.OK,
