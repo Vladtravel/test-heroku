@@ -48,6 +48,7 @@ const signup = async (req, res, next) => {
         email,
         subscription,
         avatarURL,
+        verifyToken
       },
     });
   } catch (e) {
